@@ -276,11 +276,3 @@ Auth: Staff credentials
 ```
 
 ---
-
-## Developer
-
-- **Name**: Dax Patel
-- **Enrollment**: 24CEUOS091
-- **University**: Dharmsinh Desai University
-- **Branch**: Computer Engineering
-- **Semester**: 4
