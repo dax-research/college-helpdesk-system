@@ -1,6 +1,8 @@
 package com.ddu.college_helpdesk_system.entity;
 
 import com.ddu.college_helpdesk_system.enums.Role;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,6 +10,7 @@ import lombok.Data;
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NONE)
 public class User {
 
     @Id

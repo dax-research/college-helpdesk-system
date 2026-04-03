@@ -24,9 +24,6 @@ public class TicketResponseService {
     @Autowired
     private StaffRepository staffRepository;
 
-    @Autowired
-    private TicketService ticketService;
-
     public TicketResponse addResponse(Long ticketId, Long staffId, TicketResponse response) {
         Ticket ticket = ticketRepository.findById(ticketId)
                 .orElseThrow(() -> new RuntimeException("Ticket not found with id: " + ticketId));

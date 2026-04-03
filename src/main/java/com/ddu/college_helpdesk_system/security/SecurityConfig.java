@@ -30,9 +30,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/tickets/student/**").hasRole("STUDENT")
                         .requestMatchers(HttpMethod.GET, "/api/tickets/department/**").hasRole("STAFF")
                         .requestMatchers(HttpMethod.POST, "/api/responses/**").hasRole("STAFF")
-                        .requestMatchers(HttpMethod.PUT, "/api/tickets/**/status").hasRole("STAFF")
+                        .requestMatchers(HttpMethod.PUT, "/api/tickets/*/status").hasRole("STAFF")
                         .requestMatchers(HttpMethod.GET, "/api/tickets/**").hasAnyRole("ADMIN", "STAFF")
                         .requestMatchers(HttpMethod.DELETE, "/api/tickets/**").hasAnyRole("ADMIN", "STUDENT")
+                        .requestMatchers(HttpMethod.PUT, "/api/tickets/*").hasRole("STUDENT")
+                        .requestMatchers(HttpMethod.GET, "/api/tickets/unresolved").hasAnyRole("ADMIN", "STAFF")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> httpBasic.init(http));

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @Entity
 @Table(name = "ticket_responses")
@@ -22,6 +24,7 @@ public class TicketResponse {
     @JoinColumn(name = "resolved_by")
     private Staff resolvedBy;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;

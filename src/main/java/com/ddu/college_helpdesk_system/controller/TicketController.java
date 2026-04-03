@@ -43,12 +43,25 @@ public class TicketController {
         return ResponseEntity.ok(ticketService.getTicketsByDepartment(departmentId));
     }
 
+    @GetMapping("/unresolved")
+    public ResponseEntity<List<Ticket>> getUnresolvedTickets() {
+        return ResponseEntity.ok(ticketService.getUnresolvedTickets());
+    }
+
     @PutMapping("/{id}/status")
     public ResponseEntity<Ticket> updateTicketStatus(
             @PathVariable Long id,
             @RequestParam TicketStatus status) {
         return ResponseEntity.ok(ticketService.updateTicketStatus(id, status));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Ticket> updateTicket(
+            @PathVariable Long id,
+            @RequestBody Ticket ticket) {
+        return ResponseEntity.ok(ticketService.updateTicket(id, ticket));
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTicket(@PathVariable Long id) {

@@ -40,6 +40,10 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
+    public List<Ticket> getUnresolvedTickets() {
+        return ticketRepository.findByStatus(TicketStatus.OPEN);
+    }
+
     public Ticket getTicketById(Long id) {
         return ticketRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Ticket not found with id: " + id));
@@ -57,6 +61,14 @@ public class TicketService {
         Ticket ticket = getTicketById(id);
         ticket.setStatus(status);
         return ticketRepository.save(ticket);
+    }
+
+    public Ticket updateTicket(Long ticketId, Ticket updatedTicket) {
+        Ticket existing = getTicketById(ticketId);
+        existing.setTitle(updatedTicket.getTitle());
+        existing.setDescription(updatedTicket.getDescription());
+        existing.setCategory(updatedTicket.getCategory());
+        return ticketRepository.save(existing);
     }
 
     public void deleteTicket(Long id) {
