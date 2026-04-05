@@ -1,3 +1,11 @@
+# Dax Patel
+**Sem:** 4
+**Roll No:** CE-121
+**Batch:** B2
+**Project Title:** College Help Desk System
+
+---
+
 # College Help Desk System
 
 A Spring Boot REST API that allows students to raise support tickets, staff to resolve them, and admins to manage the system. Built as part of Java Technologies Term Work submission.
